@@ -1,0 +1,28 @@
+.to-do-item {
+  font-family: sans-serif;
+  color: #545454;
+  border: 1px solid #c8c8c8;
+  border-radius: 3px;
+  margin: 1em;
+  padding: 0.9em 0.6em;
+  background-color: #fff;
+  box-shadow: 0 1em 2.5em rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  flex-direction: column;
+
+  &--done {
+    opacity: 0.5;
+    background-color: #eee;
+  }
+}
+
+p,
+img {
+  padding-bottom: 1em;
+}
+
+img {
+  padding-top: 1em;
+  align-self: center;
+}

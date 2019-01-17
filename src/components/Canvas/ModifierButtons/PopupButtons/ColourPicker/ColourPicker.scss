@@ -1,0 +1,29 @@
+.colour-picker-button {
+  height: 2.7em;
+  width: 2.7em;
+  border-radius: 4px;
+  margin: 0.5em;
+
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s;
+
+  &--active,
+  &:active,
+  &:focus {
+    outline: none;
+    transform: scale(1.2);
+    box-shadow: 0 0.2em 1em rgba(#000, 0.2);
+  }
+
+  &--active .colour-picker-icon {
+    margin-top: 0.2em;
+  }
+}
+
+.colour-picker-icon {
+  height: 2.7em;
+  width: 2.7em;
+  color: #adadad;
+}

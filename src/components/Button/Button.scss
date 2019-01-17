@@ -1,0 +1,59 @@
+$color-white: #fff;
+$color-black: #000;
+$color-grey-light-1: #ddd;
+$color-grey-dark-1: #777;
+$color-secondary-light: #2ebf91;
+$color-secondary-dark: #8360c3;
+
+.btn {
+  &,
+  &:link,
+  &:visited {
+    font-size: 0.9em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.9em 2.1em;
+    margin: 0 1em;
+    margin-top: 1em;
+    display: inline-block;
+    border-radius: 7em;
+    transition: all 0.3s;
+    position: relative;
+    color: $color-white;
+    border: none;
+    cursor: pointer;
+    transform: translateZ(0);
+  }
+
+  &:hover {
+    transform: translateY(-3px) translateZ(0);
+    box-shadow: 0 0.7em 3em rgba($color-black, 0.2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 0.4em 0.7em rgba($color-black, 0.2);
+  }
+
+  &--grey {
+    background-color: $color-grey-light-1;
+    color: $color-black;
+  }
+
+  &--green {
+    background-color: $color-secondary-light;
+    color: $color-white;
+  }
+
+  &--purple {
+    background-color: $color-secondary-dark;
+    color: $color-white;
+  }
+}

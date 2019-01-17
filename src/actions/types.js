@@ -1,0 +1,11 @@
+export const FETCH_TODOS = "FETCH_TODOS";
+export const SAVE_IMG = "SAVE_IMG";
+export const SHOW_MODAL = "SHOW_MODAL";
+export const CANVAS_MODE = "CANVAS_MODE";
+export const ACTIVE_TODO = "ACTIVE_TODO";
+export const SET_CANVAS_MODE = "SET_CANVAS_MODE";
+export const SET_ACTIVE_EDIT_MODE = "SET_ACTIVE_EDIT_MODE";
+export const SHOW_POPUP = "SHOW_POPUP";
+export const SET_STROKE_COLOUR = "SET_STROKE_COLOUR";
+export const SET_FILL_COLOUR = "SET_FILL_COLOUR";
+export const SET_STROKE_WIDTH = "SET_STROKE_WIDTH";
