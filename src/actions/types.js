@@ -1,6 +1,8 @@
 export const FETCH_TODOS = "FETCH_TODOS";
 export const SAVE_IMG = "SAVE_IMG";
 export const SHOW_MODAL = "SHOW_MODAL";
+export const LOADING_OVERLAY = "LOADING_OVERLAY";
+export const CANVAS_OBJECT = "CANVAS_OBJECT";
 export const CANVAS_MODE = "CANVAS_MODE";
 export const ACTIVE_TODO = "ACTIVE_TODO";
 export const SET_CANVAS_MODE = "SET_CANVAS_MODE";

@@ -11,18 +11,26 @@
   display: flex;
   flex-direction: column;
 
+  &__img-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  p,
+  img {
+    padding-bottom: 1em;
+  }
+
+  img {
+    padding-top: 1em;
+    align-self: center;
+  }
+
   &--done {
     opacity: 0.5;
     background-color: #eee;
   }
-}
-
-p,
-img {
-  padding-bottom: 1em;
-}
-
-img {
-  padding-top: 1em;
-  align-self: center;
 }

@@ -14,7 +14,8 @@ import {
   faTrash,
   faBan,
   faSyncAlt,
-  faTimes
+  faTimes,
+  faSpinner
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -30,7 +31,8 @@ library.add(
   faTrash,
   faBan,
   faSyncAlt,
-  faTimes
+  faTimes,
+  faSpinner
 );
 
 class App extends Component {

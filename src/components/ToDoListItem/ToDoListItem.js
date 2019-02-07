@@ -8,6 +8,7 @@ import {
   toggleDone
 } from "../../actions";
 import Button from "../Button/Button";
+import LoadingOverlay from "../LoadingOverlay/LoadingOverlay";
 
 class ToDoListItem extends Component {
   handleDoneClick() {
@@ -28,14 +29,24 @@ class ToDoListItem extends Component {
     this.props.setActiveTodo(todoItem);
   }
 
+  renderImg(src) {
+    console.log("loadingOverlay: ", this.props.loadingOverlay);
+    return (
+      <div className="to-do-item__img-container">
+        {this.props.loadingOverlay ? <LoadingOverlay /> : <div />}
+        <img src={src} alt="" />
+      </div>
+    );
+  }
+
   render() {
     const { todoId, todo } = this.props;
     return (
       <div
-        key="toDoName"
+        key={todoId}
         className={`to-do-item ${todo.done ? "to-do-item--done" : ""}`}
       >
-        {todo.img ? <img src={todo.img} /> : <div />}
+        {todo.img ? this.renderImg(todo.img) : <div />}
         {todo.imgOrig ? (
           <img
             src={todo.imgOrig}
@@ -74,12 +85,19 @@ class ToDoListItem extends Component {
   }
 }
 
-const mapStateToProps = ({ data, img, modalVisible, activeTodo }) => {
+const mapStateToProps = ({
+  data,
+  img,
+  modalVisible,
+  activeTodo,
+  loadingOverlay
+}) => {
   return {
     data,
     img,
     modalVisible,
-    activeTodo
+    activeTodo,
+    loadingOverlay
   };
 };
 

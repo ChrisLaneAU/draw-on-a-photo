@@ -7,7 +7,9 @@ import {
 import {
   FETCH_TODOS,
   FETCH_IMG,
+  LOADING_OVERLAY,
   SHOW_MODAL,
+  CANVAS_OBJECT,
   ACTIVE_TODO,
   CANVAS_MODE,
   SET_ACTIVE_EDIT_MODE,
@@ -54,7 +56,15 @@ export const fetchToDos = () => async dispatch => {
   });
 };
 
+export const setLoadingOverlay = loadingOverlay => dispatch => {
+  dispatch({
+    type: LOADING_OVERLAY,
+    payload: loadingOverlay
+  });
+};
+
 export const saveImg = (imgPath, id, coOrds) => async dispatch => {
+  dispatch(setLoadingOverlay(true));
   storageRef
     .child(`${newFirebaseId}.jpg`)
     .putString(imgPath, "data_url")
@@ -66,6 +76,7 @@ export const saveImg = (imgPath, id, coOrds) => async dispatch => {
           todosRef.child(id).update({ img: url, coOrds: coOrds });
         });
       console.log("image has been uploaded");
+      dispatch(setLoadingOverlay(false));
     });
 };
 
@@ -73,6 +84,13 @@ export const showModal = show => dispatch => {
   dispatch({
     type: SHOW_MODAL,
     payload: show
+  });
+};
+
+export const setCanvas = canvas => dispatch => {
+  dispatch({
+    type: CANVAS_OBJECT,
+    payload: canvas
   });
 };
 

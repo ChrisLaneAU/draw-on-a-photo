@@ -7,7 +7,6 @@ import * as utils from "./utils";
 import Popup from "../Popup/Popup";
 import ColourPicker from "./ModifierButtons/PopupButtons/ColourPicker/ColourPicker";
 import StrokePicker from "./ModifierButtons/PopupButtons/StrokePicker/StrokePicker";
-import Button from "../Button/Button";
 
 class Canvas extends Component {
   canvasRef = React.createRef();
@@ -129,6 +128,7 @@ class Canvas extends Component {
       { strokeColour, strokeWidth } = this.props,
       canvasHeight = 300;
     utils.canvasConfig(canvas, fabric, strokeColour, strokeWidth, canvasHeight);
+    this.props.setCanvas(canvas);
 
     // setup the background image
     const { img, imgOrig } = this.props.activeTodo;
@@ -174,34 +174,7 @@ class Canvas extends Component {
           onChange={this.handleChangeCanvas()}
           ref={this.canvasRef}
         />
-        <Button
-          onClick={() => {
-            const canvas = this.canvasRef.current.fabric;
-            const newSrc = canvas.toDataURL({
-              format: "jpeg"
-            });
-            const { id } = this.props.activeTodo;
-            canvas.setBackgroundImage(null, canvas.renderAll.bind(canvas));
-            const coOrds = JSON.stringify(canvas);
-            this.props.saveImg(newSrc, id, coOrds);
-            this.props.showModal(false);
-          }}
-          text="Save"
-          className="btn btn--green"
-        />
-        <Button
-          onClick={() => {
-            const canvas = this.canvasRef.current.fabric;
-            const newSrc = canvas.toDataURL({
-              format: "jpeg"
-            });
-            let img = new Image();
-            img.src = newSrc;
-            window.open("").document.write(img.outerHTML);
-          }}
-          text="Download"
-          className="btn btn--purple"
-        />
+
         {this.renderPopup()}
       </div>
     );

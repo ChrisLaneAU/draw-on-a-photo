@@ -1,11 +1,14 @@
 import "./DrawOnAPhoto.scss";
 import React, { Component } from "react";
 import { connect } from "react-redux";
+
+import * as actions from "../actions";
+import _ from "lodash";
+
 import Canvas from "./Canvas/Canvas";
 import DrawingButtons from "./Canvas/DrawingButtons/DrawingButtons";
 import ModifierButtons from "./Canvas/ModifierButtons/ModifierButtons";
-import _ from "lodash";
-import * as actions from "../actions";
+import SaveButtons from "./Canvas/SaveButtons/SaveButtons";
 import ToDoListItem from "./ToDoListItem/ToDoListItem";
 import ModalWindow from "./ModalWindow/ModalWindow";
 
@@ -46,17 +49,17 @@ class ToDoListDrawPhoto extends Component {
         </div>
       </form>
       */
-      const { canvas, fillColour, strokeColour } = this.props;
+      const { fillColour, strokeColour } = this.props;
       return (
         <div id="todo-add-form">
           <Canvas
             bgImg={bgImg}
-            canvasMode={canvas}
             fillColour={fillColour}
             strokeColour={strokeColour}
           />
           <DrawingButtons />
           <ModifierButtons />
+          <SaveButtons />
         </div>
       );
     }
@@ -92,6 +95,7 @@ class ToDoListDrawPhoto extends Component {
     this.props.showPopup("off");
     this.props.setActiveEditMode("freeDraw");
     this.props.showModal(false);
+    this.props.setLoadingOverlay(false);
   }
 
   render() {
