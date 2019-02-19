@@ -1,3 +1,23 @@
+## Draw On A Photo
+
+A to-do app with integrated photo editing
+
+### Stack
+
+React (CRA) + Redux + Fabric + Firebase
+
+### TODO:
+
+- Finish unit and integration tests
+- Refactor `<CanvasContainer />` methods into reducers
+- Refactor store variable names and consolidate
+- Refactor actions and reducers to [Ducks](https://github.com/erikras/ducks-modular-redux)
+- Build `<ConfirmBox />` and connect to delete/cancel buttons
+- Build Add/Delete todo item functionality
+- Build data refresh cloud function
+
+### Start Create React App Documentation
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
