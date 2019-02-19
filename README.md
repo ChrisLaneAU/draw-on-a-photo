@@ -12,11 +12,12 @@ React (CRA) + Redux + Fabric + Firebase
 - Refactor `<CanvasContainer />` methods into reducers
 - Refactor store variable names and consolidate
 - Refactor actions and reducers to [Ducks](https://github.com/erikras/ducks-modular-redux)
+- Refactor css selector names
 - Build `<ConfirmBox />` and connect to delete/cancel buttons
 - Build Add/Delete todo item functionality
 - Build data refresh cloud function
 
-### Start Create React App Documentation
+## Start Create React App Documentation
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
