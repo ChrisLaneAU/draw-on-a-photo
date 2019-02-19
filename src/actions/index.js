@@ -6,14 +6,13 @@ import {
 } from "../config/firebase";
 import {
   FETCH_TODOS,
-  FETCH_IMG,
-  LOADING_OVERLAY,
+  IMAGE_IS_SAVING,
   SHOW_MODAL,
   CANVAS_OBJECT,
   ACTIVE_TODO,
   CANVAS_MODE,
   SET_ACTIVE_EDIT_MODE,
-  SHOW_POPUP,
+  SET_POPUP_DATA,
   SET_STROKE_COLOUR,
   SET_FILL_COLOUR,
   SET_STROKE_WIDTH
@@ -56,15 +55,15 @@ export const fetchToDos = () => async dispatch => {
   });
 };
 
-export const setLoadingOverlay = loadingOverlay => dispatch => {
+export const setImageIsSaving = imageIsSaving => dispatch => {
   dispatch({
-    type: LOADING_OVERLAY,
-    payload: loadingOverlay
+    type: IMAGE_IS_SAVING,
+    payload: imageIsSaving
   });
 };
 
 export const saveImg = (imgPath, id, coOrds) => async dispatch => {
-  dispatch(setLoadingOverlay(true));
+  dispatch(setImageIsSaving(true));
   storageRef
     .child(`${newFirebaseId}.jpg`)
     .putString(imgPath, "data_url")
@@ -75,8 +74,7 @@ export const saveImg = (imgPath, id, coOrds) => async dispatch => {
         .then(url => {
           todosRef.child(id).update({ img: url, coOrds: coOrds });
         });
-      console.log("image has been uploaded");
-      dispatch(setLoadingOverlay(false));
+      dispatch(setImageIsSaving(false));
     });
 };
 
@@ -127,8 +125,8 @@ export const setActiveEditMode = activeEditModeId => dispatch => {
   });
 };
 
-export const showPopup = (show, element) => dispatch => {
-  let payload = [show];
+export const setPopupData = (show, element, idsWithPopup) => dispatch => {
+  let payloadWithElement;
   if (element) {
     const bodyRect = document
         .querySelector(".modal__window")
@@ -137,15 +135,11 @@ export const showPopup = (show, element) => dispatch => {
       offsetX = Math.floor(elemRect.left - bodyRect.left),
       offsetY = Math.floor(elemRect.top - bodyRect.top),
       width = Math.floor(elemRect.width);
-    payload = { show, offsetX, offsetY, width };
-  }
-  const popup = document.querySelector(".popup-container");
-  if (popup) {
-    popup.classList.toggle("popup-container--hide");
+    payloadWithElement = { show, offsetX, offsetY, width, idsWithPopup };
   }
   dispatch({
-    type: SHOW_POPUP,
-    payload: payload
+    type: SET_POPUP_DATA,
+    payload: payloadWithElement || { show, idsWithPopup } || { show }
   });
 };
 

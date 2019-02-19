@@ -7,7 +7,23 @@ import reducers from "./reducers";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
-const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
+const store = createStore(
+  reducers,
+  {
+    activeEditModeId: "freeDraw",
+    canvasActiveId: {
+      activeModeId: "freeDraw",
+      prevModeId: "freeDraw"
+    },
+    fillColour: "transparent",
+    modalVisible: false,
+    popupData: { show: false, idsWithPopup: [] },
+    imageIsSaving: false,
+    strokeColour: "#ff0000",
+    strokeWidth: 5
+  },
+  applyMiddleware(reduxThunk)
+);
 
 ReactDOM.render(
   <Provider store={store}>

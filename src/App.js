@@ -1,45 +1,16 @@
 import React, { Component } from "react";
-import DrawOnAPhoto from "./components/DrawOnAPhoto";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-  faArrowsAlt,
-  faPencilAlt,
-  faCircle,
-  faPlay,
-  faSquare,
-  faLongArrowAltRight,
-  faMinus,
-  faTint,
-  faSignal,
-  faTrash,
-  faBan,
-  faSyncAlt,
-  faTimes,
-  faSpinner
-} from "@fortawesome/free-solid-svg-icons";
 
-library.add(
-  faArrowsAlt,
-  faPencilAlt,
-  faCircle,
-  faPlay,
-  faSquare,
-  faLongArrowAltRight,
-  faMinus,
-  faTint,
-  faSignal,
-  faTrash,
-  faBan,
-  faSyncAlt,
-  faTimes,
-  faSpinner
-);
+import "./icons/fontAwesomeLibrary";
+
+import ToDoList from "./components/ToDoList/ToDoList";
+
+import "./App.scss";
 
 class App extends Component {
   render() {
     return (
-      <div className="container">
-        <DrawOnAPhoto />
+      <div data-test="component-app" className="draw-on-a-photo-container">
+        <ToDoList />
       </div>
     );
   }

@@ -1,22 +1,22 @@
 import { combineReducers } from "redux";
 
-import data from "./dataReducer";
+import toDoItemsData from "./fetchToDoItemsReducer";
 import img from "./imgReducer";
-import loadingOverlay from "./loadingOverlayReducer";
+import imageIsSaving from "./imageIsSavingReducer";
 import modalVisible from "./showModalReducer";
 import canvas from "./canvasReducer";
 import activeTodo from "./activeTodoReducer";
 import canvasActiveId from "./canvasActiveIdReducer";
 import activeEditModeId from "./activeEditModeReducer";
-import popupData from "./showPopupReducer";
+import popupData from "./setPopupDataReducer";
 import strokeColour from "./strokeColourReducer";
 import fillColour from "./fillColourReducer";
 import strokeWidth from "./strokeWidthReducer";
 
 export default combineReducers({
-  data,
+  toDoItemsData,
   img,
-  loadingOverlay,
+  imageIsSaving,
   modalVisible,
   canvas,
   activeTodo,

@@ -1,0 +1,22 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.draw-on-a-photo-container {
+  display: flex;
+  justify-content: center;
+}

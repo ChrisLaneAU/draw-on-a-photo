@@ -1,0 +1,26 @@
+.canvas-buttons {
+  max-width: 22em;
+  margin: 0 auto;
+  font-family: sans-serif;
+
+  &__row {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1em;
+
+    &--1 {
+      justify-content: space-between;
+    }
+  }
+
+  &__icon {
+    color: #000;
+    transition: all 0.3s;
+    font-size: 1.6em;
+    cursor: pointer;
+
+    &--active {
+      opacity: 0.65;
+    }
+  }
+}

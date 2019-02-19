@@ -1,0 +1,24 @@
+.to-do-list-container {
+  margin-top: 3em;
+  padding: 3em;
+  background-color: #fdfdfd;
+  border: 1px solid #eaeaea;
+  width: 100%;
+  max-width: 600px;
+  height: calc(100vh - 3em);
+  overflow-y: scroll;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media only screen and (max-width: 34.375em) {
+    width: 100%;
+    padding: 0;
+  }
+
+  &--loading {
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -1,14 +1,21 @@
 import React from "react";
-import App from "./App";
 import { shallow } from "enzyme";
 
-describe("<App />", () => {
-  it("renders 1 <App /> component", () => {
-    const component = shallow(<App />);
-    expect(component).toHaveLength(1);
+import { findByTestAttr } from "../test/testUtils";
+import App from "./App";
+
+const setup = (initialState = {}) => {
+  const wrapper = shallow(<App {...initialState} />);
+  return wrapper;
+};
+
+describe("render", () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = setup();
+  });
+  it("renders component without error", () => {
+    const component = findByTestAttr(wrapper, "component-app");
+    expect(component.length).toBe(1);
   });
 });
-
-//describe('it renders props correctly', () => {
-//  it("");
-//});
