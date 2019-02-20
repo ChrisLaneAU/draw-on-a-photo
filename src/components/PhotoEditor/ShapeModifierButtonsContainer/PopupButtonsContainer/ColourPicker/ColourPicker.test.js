@@ -1,11 +1,11 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import { findByTestAttr } from "../../../../../../../test/testUtils";
-import ColourPickerButton from "./ColourPickerButton";
+import { findByTestAttr } from "../../../../../../test/testUtils";
+import ColourPicker from "./ColourPicker";
 
 const setup = (initialState = {}) => {
-  const wrapper = shallow(<ColourPickerButton {...initialState} />);
+  const wrapper = shallow(<ColourPicker {...initialState} />);
   return wrapper;
 };
 
@@ -13,17 +13,18 @@ describe("render", () => {
   let wrapper;
   beforeEach(() => {
     const initialState = {
-      classes: "",
+      activeModeId: "",
       handleColourPickerClick: () => {},
-      id: "#ff0000",
-      colour: "#ff0000",
-      border: "",
-      icon: ""
+      setFillColour: () => {},
+      setStrokeColour: () => {},
+      setPopupData: () => {},
+      strokeColour: "",
+      fillColour: ""
     };
     wrapper = setup(initialState);
   });
   it("renders component without error", () => {
-    const component = findByTestAttr(wrapper, "component-colour-picker-button");
+    const component = findByTestAttr(wrapper, "component-colour-picker");
     expect(component.length).toBe(1);
   });
 });

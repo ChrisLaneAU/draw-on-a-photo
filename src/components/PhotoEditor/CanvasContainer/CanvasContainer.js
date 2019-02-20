@@ -102,23 +102,23 @@ export class CanvasContainer extends Component {
   render() {
     const { activeTodo, strokeColour, strokeWidth } = this.props;
     return (
-      <Canvas
-        fabric={fabric}
-        activeTodo={activeTodo}
-        ref={this.canvasRef}
-        strokeColour={strokeColour}
-        strokeWidth={strokeWidth}
-        canvasConfig={(canvas, fabric) => utils.canvasConfig(canvas, fabric)}
-        createArrowType={fabric => utils.createArrowType(fabric)}
-        setCanvas={canvas => this.props.setCanvas(canvas)}
-        handleChangeCanvas={() => this.handleChangeCanvas()}
-      />
+      <div data-test="component-canvas-container">
+        <Canvas
+          fabric={fabric}
+          activeTodo={activeTodo}
+          strokeColour={strokeColour}
+          strokeWidth={strokeWidth}
+          canvasConfig={(canvas, fabric) => utils.canvasConfig(canvas, fabric)}
+          createArrowType={fabric => utils.createArrowType(fabric)}
+          setCanvas={canvas => this.props.setCanvas(canvas)}
+          handleChangeCanvas={() => this.handleChangeCanvas()}
+        />
+      </div>
     );
   }
 }
 
 CanvasContainer.propTypes = {
-  img: PropTypes.object.isRequired,
   canvas: PropTypes.object.isRequired,
   activeTodo: PropTypes.shape({
     coOrds: PropTypes.string,
@@ -145,7 +145,6 @@ CanvasContainer.propTypes = {
 };
 
 const mapStateToProps = ({
-  img,
   canvas,
   activeTodo,
   canvasActiveId,
@@ -155,7 +154,6 @@ const mapStateToProps = ({
   strokeWidth
 }) => {
   return {
-    img,
     canvas,
     activeTodo,
     canvasActiveId,

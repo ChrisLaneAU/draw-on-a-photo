@@ -35,7 +35,10 @@ export class DrawingModeButtonsContainer extends Component {
 
   render() {
     return (
-      <div className="canvas-buttons">
+      <div
+        data-test="component-drawing-mode-buttons-container"
+        className="canvas-buttons"
+      >
         <DrawingModeButtons
           icons={this.createIcons()}
           activeEditModeId={this.props.activeEditModeId}
@@ -47,13 +50,13 @@ export class DrawingModeButtonsContainer extends Component {
 }
 
 DrawingModeButtonsContainer.propTypes = {
-  activeModeId: PropTypes.string,
   setActiveEditMode: PropTypes.func.isRequired,
-  setCanvasMode: PropTypes.func.isRequired
+  setCanvasMode: PropTypes.func.isRequired,
+  activeEditModeId: PropTypes.string
 };
 
 DrawingModeButtonsContainer.defaultProps = {
-  activeModeId: "freeDraw"
+  activeEditModeId: "freeDraw"
 };
 
 const mapStateToProps = ({ activeEditModeId }) => {

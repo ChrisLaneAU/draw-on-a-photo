@@ -81,7 +81,7 @@ export class ShapeModifierButtonsContainer extends Component {
   render() {
     const { fillColour, strokeColour, strokeWidth } = this.props;
     return (
-      <>
+      <div data-test="component-shape-modifer-buttons-container">
         <ShapeModifierButtons
           buttonGroups={this.buttonGroups()}
           fillColour={fillColour}
@@ -90,7 +90,7 @@ export class ShapeModifierButtonsContainer extends Component {
           handleButtonClick={this.handleButtonClick}
         />
         <PopupButtonsContainer />
-      </>
+      </div>
     );
   }
 }

@@ -41,7 +41,10 @@ const ShapeModifierButtons = ({
             </span>
           );
         return (
-          <span key={notification} className="canvas-buttons__notification">
+          <span
+            key={notification || "notification"}
+            className="canvas-buttons__notification"
+          >
             {notification}
           </span>
         );
@@ -63,7 +66,11 @@ const ShapeModifierButtons = ({
     );
   };
 
-  return <div className="canvas-buttons">{renderGroups()}</div>;
+  return (
+    <div data-test="component-shape-modifer-buttons" className="canvas-buttons">
+      {renderGroups()}
+    </div>
+  );
 };
 
 ShapeModifierButtons.propTypes = {

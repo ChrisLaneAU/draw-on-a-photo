@@ -74,7 +74,11 @@ export class PopupButtonsContainer extends Component {
   }
 
   render() {
-    return <>{this.renderPopup()}</>;
+    return (
+      <div data-test="component-popup-buttons-container">
+        {this.renderPopup()}
+      </div>
+    );
   }
 }
 
@@ -87,7 +91,8 @@ PopupButtonsContainer.propTypes = {
     show: PropTypes.bool,
     offsetX: PropTypes.number,
     offsetY: PropTypes.number,
-    width: PropTypes.number
+    width: PropTypes.number,
+    idsWithPopup: PropTypes.array
   }).isRequired,
   strokeWidth: PropTypes.number.isRequired,
   fillColour: PropTypes.string.isRequired,

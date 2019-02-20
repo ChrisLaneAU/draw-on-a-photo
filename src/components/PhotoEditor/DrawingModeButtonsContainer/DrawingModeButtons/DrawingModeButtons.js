@@ -32,7 +32,11 @@ const DrawingModeButtons = ({ icons, activeEditModeId, handleClick }) => {
     return <div className={defaultClasses}>{iconButtons}</div>;
   };
 
-  return <div className="canvas-buttons">{renderButtons()}</div>;
+  return (
+    <div data-test="component-drawing-mode-buttons" className="canvas-buttons">
+      {renderButtons()}
+    </div>
+  );
 };
 
 DrawingModeButtons.propTypes = {

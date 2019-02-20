@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import {
@@ -15,6 +16,8 @@ import "./ItemsContainer.scss";
 export class ItemsContainer extends Component {
   handleDoneClick() {
     const { todoId, todo, toggleDone } = this.props;
+    console.log("ItemsContainer todo", todo);
+    console.log("ItemsContainer todoId", todoId);
     toggleDone(todoId, !todo.done);
   }
 
@@ -46,16 +49,47 @@ export class ItemsContainer extends Component {
   }
 }
 
+ItemsContainer.propTypes = {
+  todoId: PropTypes.string,
+  todo: PropTypes.object,
+  toDoItemsData: PropTypes.objectOf(
+    PropTypes.shape({
+      coOrds: PropTypes.string,
+      done: PropTypes.bool.isRequired,
+      img: PropTypes.string,
+      imgOrig: PropTypes.string,
+      title: PropTypes.string.isRequired
+    })
+  ).isRequired,
+  modalVisible: PropTypes.bool.isRequired,
+  activeTodo: PropTypes.shape({
+    coOrds: PropTypes.string,
+    done: PropTypes.bool,
+    img: PropTypes.string,
+    imgOrig: PropTypes.string,
+    title: PropTypes.string
+  }),
+  imageIsSaving: PropTypes.bool.isRequired,
+  completeToDo: PropTypes.func.isRequired,
+  showModal: PropTypes.func.isRequired,
+  setActiveTodo: PropTypes.func.isRequired,
+  toggleDone: PropTypes.func.isRequired
+};
+
+ItemsContainer.defaultProps = {
+  todoId: "",
+  todo: {},
+  activeTodo: {}
+};
+
 const mapStateToProps = ({
   toDoItemsData,
-  img,
   modalVisible,
   activeTodo,
   imageIsSaving
 }) => {
   return {
     toDoItemsData,
-    img,
     modalVisible,
     activeTodo,
     imageIsSaving

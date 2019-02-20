@@ -24,6 +24,7 @@ const Items = ({
 
   return (
     <li
+      data-test="component-items"
       key={todoId}
       className={`to-do-item ${todo.done ? "to-do-item--done" : ""}`}
     >
@@ -64,16 +65,27 @@ const Items = ({
 
 Items.propTypes = {
   imageIsSaving: PropTypes.bool.isRequired,
-  todoId: PropTypes.string.isRequired,
+  handleDoneClick: PropTypes.func.isRequired,
+  handleDrawOnThePhotoClick: PropTypes.func.isRequired,
+  todoId: PropTypes.string,
   todo: PropTypes.shape({
     coOrds: PropTypes.string,
     done: PropTypes.bool,
     img: PropTypes.string,
     imgOrig: PropTypes.string,
     title: PropTypes.string
-  }).isRequired,
-  handleDoneClick: PropTypes.func.isRequired,
-  handleDrawOnThePhotoClick: PropTypes.func.isRequired
+  })
+};
+
+Items.defaultProps = {
+  todoId: "",
+  todo: {
+    coOrds: "",
+    done: false,
+    img: "",
+    imgOrig: "",
+    title: ""
+  }
 };
 
 export default Items;

@@ -13,6 +13,7 @@ describe("render", () => {
   let wrapper;
   beforeEach(() => {
     const initialState = {
+      setPopupData: () => {},
       popupData: {
         show: false,
         offsetX: 0,

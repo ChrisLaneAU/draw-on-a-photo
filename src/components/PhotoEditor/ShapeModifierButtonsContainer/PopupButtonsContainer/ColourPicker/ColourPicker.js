@@ -59,7 +59,7 @@ const ColourPicker = ({
     return <div>{buttons}</div>;
   };
 
-  return <div>{renderButtons()}</div>;
+  return <div data-test="component-colour-picker">{renderButtons()}</div>;
 };
 
 ColourPicker.propTypes = {
