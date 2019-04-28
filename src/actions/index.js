@@ -55,12 +55,10 @@ export const fetchToDos = () => async dispatch => {
   });
 };
 
-export const setImageIsSaving = imageIsSaving => dispatch => {
-  dispatch({
-    type: IMAGE_IS_SAVING,
-    payload: imageIsSaving
-  });
-};
+export const setImageIsSaving = imageIsSaving => ({
+  type: IMAGE_IS_SAVING,
+  payload: imageIsSaving
+});
 
 export const saveImg = (imgPath, id, coOrds) => async dispatch => {
   dispatch(setImageIsSaving(true));
@@ -78,26 +76,20 @@ export const saveImg = (imgPath, id, coOrds) => async dispatch => {
     });
 };
 
-export const showModal = show => dispatch => {
-  dispatch({
-    type: SHOW_MODAL,
-    payload: show
-  });
-};
+export const showModal = show => ({
+  type: SHOW_MODAL,
+  payload: show
+});
 
-export const setCanvas = canvas => dispatch => {
-  dispatch({
-    type: CANVAS_OBJECT,
-    payload: canvas
-  });
-};
+export const setCanvas = canvas => ({
+  type: CANVAS_OBJECT,
+  payload: canvas
+});
 
-export const setActiveTodo = activeTodo => dispatch => {
-  dispatch({
-    type: ACTIVE_TODO,
-    payload: activeTodo
-  });
-};
+export const setActiveTodo = activeTodo => ({
+  type: ACTIVE_TODO,
+  payload: activeTodo
+});
 
 export const setCanvasMode = (
   activeId,
@@ -118,12 +110,10 @@ export const setCanvasMode = (
   });
 };
 
-export const setActiveEditMode = activeEditModeId => dispatch => {
-  dispatch({
-    type: SET_ACTIVE_EDIT_MODE,
-    payload: activeEditModeId
-  });
-};
+export const setActiveEditMode = activeEditModeId => ({
+  type: SET_ACTIVE_EDIT_MODE,
+  payload: activeEditModeId
+});
 
 export const setPopupData = (show, element, idsWithPopup) => dispatch => {
   let payloadWithElement;
@@ -143,23 +133,17 @@ export const setPopupData = (show, element, idsWithPopup) => dispatch => {
   });
 };
 
-export const setStrokeColour = strokeColour => dispatch => {
-  dispatch({
-    type: SET_STROKE_COLOUR,
-    payload: strokeColour
-  });
-};
+export const setStrokeColour = strokeColour => ({
+  type: SET_STROKE_COLOUR,
+  payload: strokeColour
+});
 
-export const setFillColour = fillColour => dispatch => {
-  dispatch({
-    type: SET_FILL_COLOUR,
-    payload: fillColour
-  });
-};
+export const setFillColour = fillColour => ({
+  type: SET_FILL_COLOUR,
+  payload: fillColour
+});
 
-export const setStrokeWidth = strokeWidth => dispatch => {
-  dispatch({
-    type: SET_STROKE_WIDTH,
-    payload: strokeWidth - 0
-  });
-};
+export const setStrokeWidth = strokeWidth => ({
+  type: SET_STROKE_WIDTH,
+  payload: strokeWidth - 0
+});

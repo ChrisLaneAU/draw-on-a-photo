@@ -17,16 +17,13 @@ export class CanvasContainer extends Component {
     this.handleChangeCanvas = this.handleChangeCanvas.bind(this);
   }
 
-  canvasRef = React.createRef();
-
   handleChangeCanvas = () => {
     // exit if the canvas isn't initialised
-    if (!this.canvasRef.current) return;
+    if (Object.entries(this.props.canvas).length === 0) return;
 
     // variables for the utility methods
-    const canvas = this.canvasRef.current.fabric,
-      { activeModeId, prevModeId } = this.props.canvasActiveId,
-      { fillColour, strokeColour, strokeWidth, popupData } = this.props,
+    const { activeModeId, prevModeId } = this.props.canvasActiveId,
+      { canvas, fillColour, strokeColour, strokeWidth, popupData } = this.props,
       shapeArgs = [canvas, fabric, strokeColour, strokeWidth, fillColour];
 
     // modes for drawing on the canvas (plus 'move objects' as it seemed to fit here)

@@ -16,8 +16,6 @@ import "./ItemsContainer.scss";
 export class ItemsContainer extends Component {
   handleDoneClick() {
     const { todoId, todo, toggleDone } = this.props;
-    console.log("ItemsContainer todo", todo);
-    console.log("ItemsContainer todoId", todoId);
     toggleDone(todoId, !todo.done);
   }
 

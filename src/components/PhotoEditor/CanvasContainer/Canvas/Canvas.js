@@ -12,12 +12,12 @@ const Canvas = ({
   handleChangeCanvas
 }) => {
   useEffect(() => {
-    // initialise Fabric's canvas and set the ref
+    // initialise Fabric's canvas
     const canvas = new fabric.Canvas("paper");
 
     // initial state and configuration
-    canvasConfig(canvas, fabric);
     setCanvas(canvas);
+    canvasConfig(canvas, fabric);
 
     // setup the background image
     const { img, imgOrig } = activeTodo;
