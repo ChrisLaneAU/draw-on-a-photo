@@ -22,11 +22,11 @@ React (CRA) + Redux + Fabric + Firebase + scss + lodash
 
 ### Screenshots - List
 
-![To-do list](https://github.com/ChrisLaneAU/draw-on-a-photo/tree/master/public/Draw-List.png?raw=true "To-do List")
+![To-do list](https://github.com/ChrisLaneAU/draw-on-a-photo/blob/master/public/Draw-List.png?raw=true "To-do List")
 
 ### Screenshots - Drawing on the Photo
 
-![Drawing on the photo](https://github.com/ChrisLaneAU/draw-on-a-photo/tree/master/public/Draw-Edit-Photo.png?raw=true "Drawing on teh photo")
+![Drawing on the photo](https://github.com/ChrisLaneAU/draw-on-a-photo/blob/master/public/Draw-Edit-Photo.png?raw=true "Drawing on teh photo")
 
 ### TODO:
 
